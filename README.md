@@ -1,33 +1,28 @@
 # A Kernel Seedling
-TODO: intro
+The proc_count kernel module creates a file /proc/count that shows the current number of running processes.
 
 ## Building
 ```shell
-TODO: cmd for build
+make
 ```
 
 ## Running
 ```shell
-TODO: cmd for running binary
+sudo insmod proc_count.ko
+cat /proc/count
 ```
-TODO: results?
+This will print an integer - the current number of running processes - followed by a newline.
 
 ## Cleaning Up
 ```shell
-TODO: cmd for cleaning the built binary
+sudo rmmod proc_count
+make clean
 ```
 
 ## Testing
 ```python
 python -m unittest
 ```
-TODO: results?
+The unit tests should succeed within reasonable time, and will output a message indicating that all 3 tests succeeded, as well as the time they took to execute.
 
-Report which kernel release version you tested your module on
-(hint: use `uname`, check for options with `man uname`).
-It should match release numbers as seen on https://www.kernel.org/.
-
-```shell
-uname -r -s -v
-```
-TODO: kernel ver?
+This module was tested on Linux 5.14.8.
